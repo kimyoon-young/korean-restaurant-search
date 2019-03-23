@@ -1,9 +1,9 @@
-korean restaurants search program
+# korean restaurants search program
 
-Install
+## Install
 
 $ pip install -r requirements.txt
 
-Run
+## Run
 
 $ ./manage.py runserver
