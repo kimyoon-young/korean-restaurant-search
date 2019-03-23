@@ -33,22 +33,28 @@ def results(request):
             #.filter("term", title=title)
 
     elif details and cate3 == '모두':
-        ㅎ = Search(using=client, index="test_app_restaurants") \
+        posts = Search(using=client, index="test_app_restaurants") \
             .query("match", details=details) \
             #.filter("term", local=local) \
             #.filter("term", title=title)
     else:
         posts = ''
 
+
     # scoreing 부분 추가
 
-    if not posts:
+    filtered_posts = []
+    if posts:
         response = posts.execute()
-        h = response.hits[0]
-        print('/%s/%s/%s returned with score %f' % (
-            h.meta.index, h.meta.doc_type, h.meta.id, h.meta.score))
 
-    return render(request, 'results.html', {'posts': posts})
+
+        for h, post in zip (response,posts):
+            print('/%s/%s/%s returned with score %f' % (
+                h.meta.index, h.meta.doc_type, h.meta.id, h.meta.score))
+            if h.meta.score >= 6.5:
+                filtered_posts.append(post)
+
+    return render(request, 'results.html', {'posts': filtered_posts})
 
 
 
