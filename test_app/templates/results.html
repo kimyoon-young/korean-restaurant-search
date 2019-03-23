@@ -1,0 +1,52 @@
+
+<h3>검색결과</h3>
+<hr class="one">
+
+
+<style>
+  table {
+    width: 100%;
+    border: 1px solid #444444;
+  }
+  th, td {
+    border: 1px solid #444444;
+  }
+</style>
+
+<form action = "{% url 'search' %}" accept-charset="utf-8" name = "products" method = "get">
+    <table class="type11"  style="table-layout:fixed">
+        <thead>
+        <tr>
+            <th scope="cols">음식점명</th>
+            <th scope="cols">카테고리</th>
+            <th scope="cols">광역/도</th>
+            <th scope="cols">시군구</th>
+            <th scope="cols">설명</th>
+        </tr>
+        </thead>
+        {% for item in posts %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.cate3 }}</td>
+            <td>{{ item.local }}</td>
+            <td>{{ item.city }}</td>
+            <!--<td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"> {{ item.details }}</td>-->
+            <td> {{ item.details }}</td>
+        </tr>
+        {% endfor %}
+        <br><br>
+
+    </table>
+    <br><br>
+    <input type = "submit" value = "검색페이지 이동"/>
+
+</form>
+
+
+
+
+
+
+
+
+

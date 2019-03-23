@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+
+    <body >
+        <form action = "{% url 'results' %}" accept-charset="utf-8" name = "restaurants" method = "get">
+            <fieldset style = "width:350">
+
+                <legend>음식점 정보 입력</legend>
+                    검색어 : <input type = "text" name = "details" required/><br><br>
+                    카테고리 :
+                    <select name = "cate3">
+                          <option value = '모두'>모두</option>
+                          <option value = '한식'>한식</option>
+                          <option value = '서양식'>서양식</option>
+                          <option value = '패밀리레스토랑'>패밀리레스토랑</option>
+                          <option value = '아시아식'>아시아식</option>
+                          <option value = '일식'>일식</option>
+                          <option value = '중식'>중식</option>
+                          <option value = '이색음식점'>이색음식점</option>
+                        <option value = '카페/전통찻집'>카페/전통찻집</option>
+                    </select>
+
+                    <br><br>
+                    <input type = "submit" value = "검색"/>
+                    <input type = "reset" value = "초기화"/><br><br>
+            </fieldset>
+        </form>
+    </body>
+</html>
+
+<!--<form class="search" method="get">-->
+
+  <!--<i class="fa fa-search search-icon"></i>-->
+  <!--<input class="search-input" id="q" {% if request.GET.q %}value="{{ request.GET.q }}"{% endif %} name="q" type="text" placeholder="your search...">-->
+  <!--<div class="button">-->
+        <!--<button type="submit">Send your message</button>-->
+    <!--</div>-->
+<!--</form>-->
+
+
