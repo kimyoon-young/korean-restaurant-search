@@ -20,18 +20,19 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 #sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'test_app'))
-import test_app.search
+from test_app.search import views
 from django.urls import  path, include
-#from search import views
+#from .test_app/search import views
 
 #from search import views as search_views
 
 urlpatterns = [
-    url('', include('test_app.search.urls')),
+    #url('', include('test_app.search.urls')),
     #url(r'^admin/', admin.site.urls),
+    url(r'^results/', views.results, name='results'),  # < here
+    url(r'', views.search, name='search'),
 
     #url(r'^search/', views.search, name='search'),  # < here
-    #url(r'^results/', views.results, name='results'),  # < here
 ]
 
 
